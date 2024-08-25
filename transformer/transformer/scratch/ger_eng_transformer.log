@@ -1,0 +1,428 @@
+Transformer(
+  (TransformerEncoder): Encoder(
+    (input_embedding): InputEmbedding(8014, 512)
+    (position_encoding): PositionEncoding()
+    (encoder_block): ModuleList(
+      (0-7): 8 x EncoderLayer(
+        (self_attention): MultiHeadAttention(
+          (scale_dot_product_attention): ScaledDotProductAttention(
+            (softmax): Softmax(dim=-1)
+          )
+          (w_q): Linear(in_features=512, out_features=512, bias=True)
+          (w_k): Linear(in_features=512, out_features=512, bias=True)
+          (w_v): Linear(in_features=512, out_features=512, bias=True)
+          (linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (drop_1): Dropout(p=0.2, inplace=False)
+        (norm_1): LayerNorm()
+        (ffn): FeedForward(
+          (linear1): Linear(in_features=512, out_features=2048, bias=True)
+          (linear2): Linear(in_features=2048, out_features=512, bias=True)
+          (relu): ReLU()
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+        (drop_2): Dropout(p=0.2, inplace=False)
+        (norm_2): LayerNorm()
+      )
+    )
+  )
+  (TransformerDecoder): Decoder(
+    (input_embedding): InputEmbedding(6191, 512)
+    (position_encoding): PositionEncoding()
+    (decoder_block): ModuleList(
+      (0-7): 8 x DecoderLayer(
+        (self_attention): MultiHeadAttention(
+          (scale_dot_product_attention): ScaledDotProductAttention(
+            (softmax): Softmax(dim=-1)
+          )
+          (w_q): Linear(in_features=512, out_features=512, bias=True)
+          (w_k): Linear(in_features=512, out_features=512, bias=True)
+          (w_v): Linear(in_features=512, out_features=512, bias=True)
+          (linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (drop_1): Dropout(p=0.2, inplace=False)
+        (norm_1): LayerNorm()
+        (cross_attention): MultiHeadAttention(
+          (scale_dot_product_attention): ScaledDotProductAttention(
+            (softmax): Softmax(dim=-1)
+          )
+          (w_q): Linear(in_features=512, out_features=512, bias=True)
+          (w_k): Linear(in_features=512, out_features=512, bias=True)
+          (w_v): Linear(in_features=512, out_features=512, bias=True)
+          (linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (ffn): FeedForward(
+          (linear1): Linear(in_features=512, out_features=2048, bias=True)
+          (linear2): Linear(in_features=2048, out_features=512, bias=True)
+          (relu): ReLU()
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+        (drop_2): Dropout(p=0.2, inplace=False)
+        (norm_2): LayerNorm()
+        (drop_3): Dropout(p=0.2, inplace=False)
+        (norm_3): LayerNorm()
+      )
+    )
+    (lm_header): Linear(in_features=512, out_features=6191, bias=True)
+  )
+)
+----------------------------------------------------------------------
+Epoch 1/30, Train Loss: 5.7288
+Epoch 1/30, Validation Loss: 4.8433
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a man in a man in a in a and a and a and a and a and a and a and a and a and a in a and a and a and a and a in a and .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two are in a are in the in the .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of a of a of a of a of a of a of a of a of a of a of a of a of .
+
+----------------------------------------------------------------------
+Epoch 2/30, Train Loss: 4.4754
+Epoch 2/30, Validation Loss: 4.3275
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt and a blue shirt and a blue shirt and a blue and a blue and a blue and a blue and a blue .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two are are are in the are are are in the are .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people on a group of people on a group .
+
+----------------------------------------------------------------------
+Epoch 3/30, Train Loss: 4.0982
+Epoch 3/30, Validation Loss: 4.0520
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt and a blue shirt and a blue shirt and a blue shirt on a blue shirt .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children are playing in the playing .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people are are on a group of people on a group .
+
+----------------------------------------------------------------------
+Epoch 4/30, Train Loss: 3.8493
+Epoch 4/30, Validation Loss: 3.7943
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt and a blue shirt and a blue shirt on a blue shirt .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the children .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people are walking on a group of people .
+
+----------------------------------------------------------------------
+Epoch 5/30, Train Loss: 3.6587
+Epoch 5/30, Validation Loss: 3.6421
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and blue shirt standing on a blue shirt and a blue shirt .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the background .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a group of people .
+
+----------------------------------------------------------------------
+Epoch 6/30, Train Loss: 3.5067
+Epoch 6/30, Validation Loss: 3.5009
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and blue shirt standing on a blue shirt and a blue shirt .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 7/30, Train Loss: 3.3814
+Epoch 7/30, Validation Loss: 3.3817
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a blue shirt .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 8/30, Train Loss: 3.2770
+Epoch 8/30, Validation Loss: 3.2895
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a blue shirt .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 9/30, Train Loss: 3.1872
+Epoch 9/30, Validation Loss: 3.1954
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a blue shirt standing on a blue shirt .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 10/30, Train Loss: 3.1063
+Epoch 10/30, Validation Loss: 3.1158
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a blue shirt .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 11/30, Train Loss: 3.0341
+Epoch 11/30, Validation Loss: 3.0402
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a wall .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 12/30, Train Loss: 2.9683
+Epoch 12/30, Validation Loss: 2.9845
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a wall .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 13/30, Train Loss: 2.9099
+Epoch 13/30, Validation Loss: 2.9349
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a wall .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 14/30, Train Loss: 2.8558
+Epoch 14/30, Validation Loss: 2.9017
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 15/30, Train Loss: 2.8074
+Epoch 15/30, Validation Loss: 2.8546
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a window of a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 16/30, Train Loss: 2.7608
+Epoch 16/30, Validation Loss: 2.8095
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 17/30, Train Loss: 2.7171
+Epoch 17/30, Validation Loss: 2.7708
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 18/30, Train Loss: 2.6789
+Epoch 18/30, Validation Loss: 2.7500
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a woman standing on a window of a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children are playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 19/30, Train Loss: 2.6415
+Epoch 19/30, Validation Loss: 2.7188
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children are playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 20/30, Train Loss: 2.6058
+Epoch 20/30, Validation Loss: 2.6768
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a woman standing on a window of a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 21/30, Train Loss: 2.5732
+Epoch 21/30, Validation Loss: 2.6700
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 22/30, Train Loss: 2.5418
+Epoch 22/30, Validation Loss: 2.6576
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 23/30, Train Loss: 2.5112
+Epoch 23/30, Validation Loss: 2.6037
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a ladder standing on a window of a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children are playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 24/30, Train Loss: 2.4826
+Epoch 24/30, Validation Loss: 2.5896
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a ladder standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children are playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 25/30, Train Loss: 2.4561
+Epoch 25/30, Validation Loss: 2.5563
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a ladder standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children are playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 26/30, Train Loss: 2.4301
+Epoch 26/30, Validation Loss: 2.5481
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a ladder standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children are playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 27/30, Train Loss: 2.4047
+Epoch 27/30, Validation Loss: 2.5269
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a ladder standing on a ladder .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children are playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 28/30, Train Loss: 2.3810
+Epoch 28/30, Validation Loss: 2.5149
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a ladder standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children are playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 29/30, Train Loss: 2.3584
+Epoch 29/30, Validation Loss: 2.4926
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a ladder standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children are playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
+----------------------------------------------------------------------
+Epoch 30/30, Train Loss: 2.3355
+Epoch 30/30, Validation Loss: 2.4879
+Source: Ein Mann in einem blauen Hemd steht auf einer Leiter und putzt ein Fenster.
+Translation: A man in a blue shirt and a blue shirt standing on a window .
+
+Source: Zwei Kinder spielen im Park.
+Translation: Two children playing in the park .
+
+Source: Eine Gruppe von Menschen geht auf einem Bürgersteig.
+Translation: A group of people walking on a sidewalk .
+
